@@ -17,7 +17,9 @@
     "pages/withdraw/index",
     "pages/kanjia/index",
     "pages/authorize/index",
-    "pages/score-excharge/index"
+    "pages/score-excharge/index",
+    "pages/article/index",
+    "pages/article/post-detail/post-detail"
   ],
   "window":{
     "backgroundTextStyle":"light",
@@ -38,6 +40,11 @@
       "iconPath": "images/nav/home-off.png",
       "selectedIconPath": "images/nav/home-on.png",
       "text": "首页"
+    }, {
+      "pagePath": "pages/article/index",
+      "text": "资讯",
+      "iconPath": "images/nav/reading-off.png",
+      "selectedIconPath": "images/nav/reading-on.png"
     }, {
       "pagePath": "pages/shop-cart/index",
       "iconPath": "images/nav/cart-off.png",
