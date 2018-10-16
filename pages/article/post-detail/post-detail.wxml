@@ -1,15 +1,14 @@
 
 <!--先静后动，先样式再数据-->
 <view class="container">
-  <image class="head-image" src="{{isPlayingMusic?postData.music.coverImg:postData.headImgSrc}}"></image>
-  <image catchtap="onMusicTap" class="audio" src="{{isPlayingMusic? '/images/music/music-stop.png': '/images/music/music-start.png'}}"></image>
+  <image class="head-image" src="{{postData.pic}}"></image>
+  <text class="title">{{postData.title}}</text>
   <view class="author-date">
-    <image class="avatar" src="{{postData.avatar}}"></image>
     <text class="author">{{postData.author}}</text>
     <text class="const-text">发表于</text>
-    <text class="date">{{postData.dateTime}}</text>
+    <text class="income">{{postData.income}}</text>
+    <text class="date">{{postData.dateAdd}}</text>
   </view>
-  <text class="title">{{postData.title}}</text>
   <view class="tool">
     <view class="circle-img">
       <image wx:if="{{collected}}" catchtap="onColletionTap"  src="/images/icon/collection.png"></image>
@@ -18,5 +17,5 @@
     </view>
     <view class="horizon"></view>
   </view>
-  <text class="detail">{{postData.detail}}</text>
+  <text class="detail">{{postData.content}}</text>
 </view>

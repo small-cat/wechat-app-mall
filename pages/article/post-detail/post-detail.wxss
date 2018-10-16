@@ -24,27 +24,27 @@
 
 .author-date {
   flex-direction: row;
-  margin-left: 30rpx;
+  margin-left: 10rpx;
   margin-top: 20rpx;
-}
-
-.avatar {
-  height: 64rpx;
-  width: 64rpx;
-  vertical-align: middle;
 }
 
 .author {
   font-size: 30rpx;
   font-weight: 300;
-  margin-left: 20rpx;
-  vertical-align: middle;
   color: #666;
+  margin-left: 20rpx;
 }
 
 .const-text {
   font-size: 24rpx;
   color: #999;
+  margin-left: 20rpx;
+}
+
+.income {
+  font-size: 30rpx;
+  font-weight: 300;
+  color: #666;
   margin-left: 20rpx;
 }
 
