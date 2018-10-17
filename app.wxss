@@ -5,6 +5,7 @@
   flex-direction: column;
   justify-content: space-between;
   box-sizing: border-box;
+  align-items: center;
 } 
 .wxParse-img {
   display: block !important;

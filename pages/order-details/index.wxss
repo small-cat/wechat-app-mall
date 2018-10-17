@@ -177,7 +177,6 @@ page{
     margin: 20rpx 30rpx 20rpx auto;
     font-size:26rpx;
     color:#e64340;
-    text-align:center;
 }
 .a-goods .text-box .arow{
     display: flex;

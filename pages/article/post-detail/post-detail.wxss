@@ -102,3 +102,47 @@
   line-height: 44rpx;
   letter-spacing: 2px;
 }
+
+.comments-des-info{
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+
+.label-title{
+  font-size:28rpx;
+  color:#000000;
+  padding: 30rpx;
+}
+
+.comments-text{
+  padding: 0 10rpx;
+  font-size:28rpx;
+  color:#666666;
+  line-height: 56rpx;
+  margin-bottom: 30rpx;
+}
+
+.row-box{
+    width: 720rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 24rpx 0;
+    border-bottom: 1rpx solid #eee;
+    margin-left: 30rpx;
+}
+
+.confirm-btn{
+    background:#ffffff;
+    border:1rpx solid #e64340;
+    border-radius:6rpx;
+    width:180rpx;
+    height:60rpx;
+    line-height: 60rpx;
+    text-align: center;
+    margin: 20rpx 30rpx 20rpx auto;
+    font-size:26rpx;
+    color:#e64340;
+}

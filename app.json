@@ -42,7 +42,7 @@
       "text": "首页"
     }, {
       "pagePath": "pages/article/index",
-      "text": "资讯",
+      "text": "购物指南",
       "iconPath": "images/nav/reading-off.png",
       "selectedIconPath": "images/nav/reading-on.png"
     }, {

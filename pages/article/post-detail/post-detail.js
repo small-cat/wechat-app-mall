@@ -1,8 +1,11 @@
 // var postsData = require('../../../data/posts-data.js')
 var app = getApp();
+var WxParse = require('../../../wxParse/wxParse.js');
+
 Page({
     data: {
         postData: null,
+        articleComments: [],
         collected: 0
     },
     onLoad: function (option) {
@@ -20,8 +23,27 @@ Page({
                 postData: res.data.data
               })
             }
+            WxParse.wxParse('article', 'html', res.data.data.content, that, 5);
           }
-        })
+        });
+
+        // get article comments
+        wx.request({
+          url: 'https://api.it120.cc/' + app.globalData.subDomain +
+          '/comment/list/',
+          data: {
+            refId: postId,
+            type: 3
+          },
+          success: (res) => {
+            if (res.data.code == 0) {
+              that.setData({
+                articleComments: res.data.data
+              })
+            }
+            console.log(that.data.articleComments)
+          }
+        });
 
         var postsCollected = wx.getStorageSync('posts_collected')
         if (postsCollected) {
@@ -132,5 +154,35 @@ Page({
             desc: '曾经沧海难为水，除却巫山不是云',
             path: '/pages/posts/post-detail/post-detail?id=0'
         }
+    },
+    submitComment: function (e) {
+      var that = this;
+      var postJsonString = {};
+      postJsonString.token = wx.getStorageSync('token');
+      postJsonString.refId = that.data.postData.id;
+      postJsonString.type = 3; // type of CMS comment is 3
+      postJsonString.content = e.detail.value["commentContent"];
+      console.log(postJsonString);
+
+      // commit comments
+      wx.request({
+        url: 'https://api.it120.cc/' + app.globalData.subDomain +
+        '/comment/add',
+        data: {
+          refId: postJsonString.refId,
+          type: postJsonString.type,
+          content: postJsonString.content,
+          token: postJsonString.token
+        },
+        success: (res) => {
+          if (res.data.code == 0) {
+            wx.showToast({
+              title: '评论成功',
+              duration: 1000,
+              icon: "success"
+            })
+          }
+        }
+      })
     }
 })

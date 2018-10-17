@@ -166,6 +166,10 @@ page{
   opacity: .8;
 }
 
+.enter-text {
+  font-size:35rpx;
+  color: #405f80;
+}
 
 .copyright {
   font-size: 28rpx;

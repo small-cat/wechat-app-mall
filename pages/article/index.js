@@ -1,5 +1,6 @@
 // var postsData = require('../../data/posts-data.js')
 var app = getApp()
+
 Page({
   data: {
     //小程序总是会读取data对象来做数据绑定，这个动作我们称为动作A

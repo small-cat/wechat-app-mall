@@ -2,8 +2,8 @@ var app = getApp();
 Page({
     data:{
       orderId:0,
-        goodsList:[],
-        yunPrice:"0.00"
+      goodsList:[],
+      yunPrice:"0.00"
     },
     onLoad:function(e){
       var orderId = e.id;

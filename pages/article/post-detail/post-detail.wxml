@@ -1,4 +1,4 @@
-
+<import src="../../../wxParse/wxParse.wxml" />
 <!--先静后动，先样式再数据-->
 <view class="container">
   <image class="head-image" src="{{postData.pic}}"></image>
@@ -17,5 +17,42 @@
     </view>
     <view class="horizon"></view>
   </view>
-  <text class="detail">{{postData.content}}</text>
+  <!-- <text class="detail">{{postData.content}}</text> -->
+  <view class="detail">
+    <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+  </view>
+
+  <view class="comments-des-info" style="margin-top:35rpx;">
+    <view class="label-title" style="border-bottom:1px solid #eee;">评论<text style="color:red">（{{postData.commentNumber}}）</text></view>
+    <view wx:if="{{articleComments}}">
+      <view class="comments-text" style="margin-top:15rpx;" wx:for="{{articleComments}}" wx:key="id">
+        <view wx:if="{{item.status > 0}}">
+          <view style="width:100rpx;float:left;">
+            <image style="width: 100rpx; height: 100rpx;" src="{{item.commentUserInfo.avatarUrl}}"></image>
+          </view>
+          <view style="width:550rpx;float:left;margin-left:35rpx;border-bottom:1px solid #eee;">
+            <view style="font-size=20rpx">{{item.commentUserInfo.nick}}</view>
+            <view style="color: #B0B0B0;font-size:26rpx;">{{item.content}}</view>
+            <view style="color: #B0B0B0;font-size:22rpx;">{{item.dateAdd}}</view>
+         
+            <view wx:if="{{item.status == 2}}">
+              <view style="font-size=20rpx">小二回复：</view>
+              <view style="color: #B0B0B0;font-size:26rpx;">{{item.reply}}</view>
+              <view style="color: #B0B0B0;font-size:22rpx;">{{item.dateReply}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <form bindsubmit="submitComment" report-submit="true">
+    <view class="row-box" style="margin-top:25rpx">
+      <input name="inputComment" style="display:none;"/>
+      <textarea name="commentContent" style="margin-top:35rpx;width:100%;color:#B0B0B0;font-size:26rpx" value="添加您的评论..." />
+    </view>
+    <view class="btn-row">
+      <button class="confirm-btn" formType="submit">提交评论</button>
+    </view>
+  </form>
 </view>
