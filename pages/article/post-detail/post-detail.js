@@ -125,6 +125,7 @@ Page({
     },
 
     onShareTap: function (event) {
+        var that = this;
         var itemList = [
             "分享给微信好友",
             "分享到朋友圈",

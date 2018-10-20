@@ -60,7 +60,7 @@ page{
 }
 .title{
   position: absolute;
-  top: 30rpx;
+  top: 80rpx;
   left: 50%;
   width: 600rpx;
   height: 200rpx;
@@ -71,7 +71,7 @@ page{
 
 .smalltitle{
   position: absolute;
-  top: 50rpx;
+  top: 120rpx;
   left: 50%;
   width: 600rpx;
   height: 200rpx;
@@ -98,7 +98,7 @@ page{
   position: absolute;
   z-index: 2;
   left: 50%;
-  bottom: 200rpx;
+  bottom: 100rpx;
   width: 160rpx;
   height: 160rpx;
   margin-left: -80rpx;
@@ -106,6 +106,17 @@ page{
   animation: sway 10s ease-in-out infinite;
   opacity: .95;
 }
+
+.nickname {
+  position: absolute;
+  left: 44%;
+  bottom: 55rpx;
+  color: #01050a;
+  font-size: 30rpx;
+  font-family: Microsoft YaHei;
+  font-weight: bold;
+}
+
 @keyframes sway{
   0% {transform: translate3d(0,20rpx,0) rotate(-15deg); }
   17% {transform: translate3d(0,0rpx,0) rotate(25deg); }
@@ -159,8 +170,8 @@ page{
   background: #69C3AA;
   color: #fff;
   text-align: center;
-  border-radius: 100rpx;
-  margin: 40% 20%;
+  border-radius: 80rpx;
+  margin: 55% 30%;
 }
 .confirm-btn:active {
   opacity: .8;
@@ -169,15 +180,4 @@ page{
 .enter-text {
   font-size:35rpx;
   color: #405f80;
-}
-
-.copyright {
-  font-size: 28rpx;
-  color: #999;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 30rpx;
-  text-align: center;
 }

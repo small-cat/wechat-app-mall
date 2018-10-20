@@ -44,6 +44,7 @@ Page({
       goodsList: shopList,
     });
     that.initShippingAddress();
+    console.log("onShow" + that.data.isNeedLogistics);
   },
 
   onLoad: function (e) {
@@ -52,6 +53,7 @@ Page({
       orderType: e.orderType,
       pingtuanOpenId: e.pingtuanOpenId
     });
+    console.log("onLoad" + this.data.isNeedLogistics);
   },
 
   getDistrictId : function (obj, aaa){
@@ -145,6 +147,7 @@ Page({
           that.getMyCoupons();
           return;
         }
+        console.log("createOrder" + that.data.isNeedLogistics);
         // 配置模板消息推送
         var postJsonString = {};
         postJsonString.keyword1 = { value: res.data.data.dateAdd, color: '#173177' }
@@ -199,7 +202,7 @@ Page({
 
     for (let i = 0; i < goodsList.length; i++) {
       let carShopBean = goodsList[i];
-      if (carShopBean.logistics) {
+      if (!carShopBean.logistics) {
         isNeedLogistics = 1;
       }
       allGoodsPrice += carShopBean.price * carShopBean.number;
