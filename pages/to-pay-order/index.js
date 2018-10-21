@@ -53,7 +53,6 @@ Page({
       orderType: e.orderType,
       pingtuanOpenId: e.pingtuanOpenId
     });
-    console.log("onLoad" + this.data.isNeedLogistics);
   },
 
   getDistrictId : function (obj, aaa){
@@ -90,7 +89,7 @@ Page({
       if (!that.data.curAddressData) {
         wx.hideLoading();
         wx.showModal({
-          title: '错误',
+          title: '',
           content: '请先设置您的收货地址！',
           showCancel: false
         })
@@ -202,7 +201,8 @@ Page({
 
     for (let i = 0; i < goodsList.length; i++) {
       let carShopBean = goodsList[i];
-      if (!carShopBean.logistics) {
+      console.log(goodsList);
+      if (carShopBean.logistics) {
         isNeedLogistics = 1;
       }
       allGoodsPrice += carShopBean.price * carShopBean.number;

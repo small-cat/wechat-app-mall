@@ -19,7 +19,8 @@
     "pages/authorize/index",
     "pages/score-excharge/index",
     "pages/article/index",
-    "pages/article/post-detail/post-detail"
+    "pages/article/post-detail/post-detail",
+    "pages/balance-manage/balance"
   ],
   "window":{
     "backgroundTextStyle":"light",

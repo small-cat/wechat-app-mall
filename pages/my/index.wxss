@@ -54,3 +54,24 @@
     line-height: 80rpx;
     padding-left: 100rpx;
 }
+
+.balance {
+  font-size: 40rpx;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  color: #f13e3b;
+}
+
+.item-balance {
+  position: absolute;
+  right: 30px;
+  width: 35px;
+  height: 25px;
+  line-height: 25px;
+  background: #ff0000;
+  color: #fff;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 8px;
+  margin-top: 20rpx;
+}

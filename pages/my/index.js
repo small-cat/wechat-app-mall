@@ -30,7 +30,7 @@ Page({
   aboutUs : function () {
     wx.showModal({
       title: '关于我们',
-      content: '本系统基于开源小程序商城系统 https://github.com/EastWorld/wechat-app-mall 搭建，祝大家使用愉快！',
+      content: '本商城由福建省泉州拾荒人服装贸易有限公司提供，祝大家购物愉快！',
       showCancel:false
     })
   },

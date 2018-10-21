@@ -398,6 +398,7 @@ Page({
     shopCarMap.logisticsType = this.data.goodsDetail.basicInfo.logisticsId;
     shopCarMap.logistics = this.data.goodsDetail.logistics;
     shopCarMap.weight = this.data.goodsDetail.basicInfo.weight;
+    console.log(shopCarMap);
 
     var buyNowInfo = {};
     if (!buyNowInfo.shopNum) {
