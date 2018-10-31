@@ -3,13 +3,14 @@
            <text class="post-title">{{title}}</text>
           <text class="post-date">{{dateAdd}}</text>
             <image class="post-image" src="{{pic}}"></image>
-            <text class="post-content">{{descript}}</text>
+            <!--<text class="post-content">{{descript}}</text>-->
+            <rich-text class="post-content" nodes="{{descript}}"></rich-text>
             <view class="post-like">
+                    <!--
                     <image class="post-like-image" 
                     src="/images/icon/comments.png"></image>
-                    <!-- comment number -->
                     <text class="post-like-font">{{commentNumber}}</text>
-
+                    -->
                     <image class="post-like-image" 
                     src="/images/icon/view.png"></image>
                     <text class="post-like-font">{{views}}</text>

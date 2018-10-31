@@ -13,7 +13,7 @@
     <view class="circle-img">
       <image wx:if="{{collected}}" catchtap="onColletionTap"  src="/images/icon/collection.png"></image>
       <image wx:else catchtap="onColletionTap" src="/images/icon/collection-anti.png"></image>
-      <image catchtap="onShareTap"  class="share-img" src="/images/icon/share.png"></image>
+      <!--<image catchtap="onShareAppMessage"  class="share-img" src="/images/icon/share.png"></image>-->
     </view>
     <view class="horizon"></view>
   </view>
@@ -23,7 +23,7 @@
   </view>
 
   <view class="comments-des-info" style="margin-top:35rpx;">
-    <view class="label-title" style="border-bottom:1px solid #eee;">评论<text style="color:red">（{{postData.commentNumber}}）</text></view>
+    <view class="label-title" style="border-bottom:1px solid #eee;">评论<text style="color:red">（{{articleComments.length}}）</text></view>
     <view wx:if="{{articleComments}}">
       <view class="comments-text" style="margin-top:15rpx;" wx:for="{{articleComments}}" wx:key="id">
         <view wx:if="{{item.status > 0}}">
@@ -49,7 +49,7 @@
   <form bindsubmit="submitComment" report-submit="true">
     <view class="row-box" style="margin-top:25rpx">
       <input name="inputComment" style="display:none;"/>
-      <textarea name="commentContent" style="margin-left:50rpx;margin-top:35rpx;width:85%;color:#666;font-size:26rpx" value="添加您的评论..." />
+      <textarea name="commentContent" style="margin-left:50rpx;margin-top:35rpx;width:85%;color:#666;font-size:26rpx" placeholder="添加您的评论" value="{{commentContent}}" auto-height />
     </view>
     <view class="btn-row">
       <button class="confirm-btn" formType="submit">提交评论</button>

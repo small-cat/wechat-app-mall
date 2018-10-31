@@ -6,7 +6,8 @@ Page({
     data: {
         postData: null,
         articleComments: [],
-        collected: 0
+        collected: 0,
+        commentContent: ""
     },
     onLoad: function (option) {
         var postId = option.id;
@@ -41,6 +42,7 @@ Page({
                 articleComments: res.data.data
               })
             }
+            console.log("articleComments");
             console.log(that.data.articleComments)
           }
         });
@@ -151,8 +153,8 @@ Page({
     */
     onShareAppMessage: function (event) {
         return {
-            title: '离思五首·其四',
-            desc: '曾经沧海难为水，除却巫山不是云',
+            title: '简派男装',
+//            desc: '曾经沧海难为水，除却巫山不是云',
             path: '/pages/posts/post-detail/post-detail?id=0'
         }
     },
@@ -184,6 +186,9 @@ Page({
             })
           }
         }
+      }),
+      that.setData({
+        commentContent: ""
       })
     }
 })
