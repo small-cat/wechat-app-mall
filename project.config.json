@@ -1,7 +1,7 @@
 {
 	"description": "项目配置文件。",
 	"setting": {
-		"urlCheck": false,
+		"urlCheck": true,
 		"es6": true,
 		"postcss": false,
 		"minified": true,
@@ -9,8 +9,8 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "1.9.94",
-	"appid": "wx3b0b1f5bb02705dd",
-	"projectname": "%E7%8C%AB%E6%AD%A5%E6%97%85%E4%BA%BA%E7%9A%84%E5%B0%8F%E5%8D%96%E9%83%A8",
+	"appid": "wxbdef85a7a6e2e5eb",
+	"projectname": "shihuanger%E5%AE%98%E6%96%B9%E5%95%86%E5%9F%8E",
 	"scripts": {},
 	"condition": {
 		"search": {
