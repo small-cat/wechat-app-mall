@@ -34,6 +34,7 @@ Page({
       showCancel:false
     })
   },
+  
   getPhoneNumber: function(e) {
     if (!e.detail.errMsg || e.detail.errMsg != "getPhoneNumber:ok") {
       wx.showModal({
@@ -69,6 +70,7 @@ Page({
       }
     })
   },
+
   getUserApiInfo: function () {
     var that = this;
     wx.request({
@@ -80,7 +82,7 @@ Page({
         if (res.data.code == 0) {
           that.setData({
             apiUserInfoMap: res.data.data,
-            userMobile: res.data.data.base.mobile
+//            userMobile: res.data.data.base.mobile
           });
         }
       }

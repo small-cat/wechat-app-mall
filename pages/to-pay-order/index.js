@@ -111,7 +111,7 @@ Page({
     if (!e) {
       postData.calculate = "true";
     }
-
+    console.log(postData);
 
     wx.request({
       url: 'https://api.it120.cc/'+ app.globalData.subDomain +'/order/create',
@@ -121,6 +121,7 @@ Page({
       },
       data: postData, // 设置请求的 参数
       success: (res) =>{
+        console.log(res.data);
         wx.hideLoading();
         if (res.data.code != 0) {
           wx.showModal({
@@ -146,16 +147,20 @@ Page({
           that.getMyCoupons();
           return;
         }
-        console.log("createOrder" + that.data.isNeedLogistics);
+
         // 配置模板消息推送
         var postJsonString = {};
         postJsonString.keyword1 = { value: res.data.data.dateAdd, color: '#173177' }
         postJsonString.keyword2 = { value: res.data.data.amountReal + '元', color: '#173177' }
         postJsonString.keyword3 = { value: res.data.data.orderNumber, color: '#173177' }
-        postJsonString.keyword4 = { value: '订单已关闭', color: '#173177' }
-        postJsonString.keyword5 = { value: '您可以重新下单，请在30分钟内完成支付', color:'#173177'}
+        postJsonString.keyword4 = { value: '您可以重新下单，请在30分钟内完成支付', color: '#173177' }
+        postJsonString.keyword5 = { value: '订单已关闭', color: '#173177' }
+
+        //template id: mGVFc31MYNMoR9Z-A9yeVVYLIVGphUVcK2-S2UdZHmg
+        //mine: 30cmPGAhDF20aotWRT9O5j8or-1NHmxIK0eXMfOT8B8
+        //待支付模板消息
         app.sendTempleMsg(res.data.data.id, -1,
-          'mGVFc31MYNMoR9Z-A9yeVVYLIVGphUVcK2-S2UdZHmg', e.detail.formId,
+          '30cmPGAhDF20aotWRT9O5j8or-1NHmxIK0eXMfOT8B8', e.detail.formId,
           'pages/index/index', JSON.stringify(postJsonString));
         postJsonString = {};
         postJsonString.keyword1 = { value: '您的订单已发货，请注意查收', color: '#173177' }
