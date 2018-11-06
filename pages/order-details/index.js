@@ -73,13 +73,15 @@ Page({
                     that.onShow();
                     // 模板消息，提醒用户进行评价
                     let postJsonString = {};
-                    postJsonString.keyword1 = { value: that.data.orderDetail.orderInfo.orderNumber, color: '#173177' }
-                    let keywords2 = '您已确认收货，期待您的再次光临！';
+                    postJsonString.keyword1 = { value: that.data.orderDetail.orderInfo.orderNumber, color: '#173177' };
+                    postJsonString.keyword2 = { value: that.data.orderDetail.orderInfo.dateAdd, color: '#173177' };
+
+                    let keywords3 = '您已确认收货，期待您的再次光临！您的反馈，将帮助我们更好提升服务';
                     if (app.globalData.order_reputation_score) {
-                      keywords2 += '立即好评，系统赠送您' + app.globalData.order_reputation_score +'积分奖励。';
+                      keywords3 += '立即好评，系统赠送您' + app.globalData.order_reputation_score +'积分奖励。';
                     }
-                    postJsonString.keyword2 = { value: keywords2, color: '#173177' }
-                    app.sendTempleMsgImmediately('uJL7D8ZWZfO29Blfq34YbuKitusY6QXxJHMuhQm_lco', formId,
+                    postJsonString.keyword3 = { value: keywords3, color: '#173177' }
+                    app.sendTempleMsgImmediately('1GTO3cL6YZ62jM7ZboR0XU6x0tbH32DqRMcvovCx6Sw', formId,
                       '/pages/order-details/index?id=' + orderId, JSON.stringify(postJsonString));
                   }
                 }
