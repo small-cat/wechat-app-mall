@@ -58,6 +58,7 @@ Page({
       },
       success: function (res) {
         if (res.data.code == 0) {
+          console.log(res.data);
           // res.data.data.balance
           money = money - res.data.data.balance;
           if (res.data.data.score < needScore) {
@@ -87,6 +88,7 @@ Page({
           } else {
             wxpay.wxpay(app, money, orderId, "/pages/order-list/index");
           }
+
         } else {
           wx.showModal({
             title: '错误',
@@ -175,8 +177,8 @@ Page({
           });
         }
       }
-    })
-    
+    });
+    console.log(this.data);
   },
   onHide:function(){
     // 生命周期函数--监听页面隐藏

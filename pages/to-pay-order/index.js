@@ -44,7 +44,6 @@ Page({
       goodsList: shopList,
     });
     that.initShippingAddress();
-    console.log("onShow" + that.data.isNeedLogistics);
   },
 
   onLoad: function (e) {
@@ -111,7 +110,7 @@ Page({
     if (!e) {
       postData.calculate = "true";
     }
-    console.log(postData);
+    //console.log(postData);
 
     wx.request({
       url: 'https://api.it120.cc/'+ app.globalData.subDomain +'/order/create',
@@ -121,7 +120,7 @@ Page({
       },
       data: postData, // 设置请求的 参数
       success: (res) =>{
-        console.log(res.data);
+        //console.log(res.data);
         wx.hideLoading();
         if (res.data.code != 0) {
           wx.showModal({
@@ -162,6 +161,7 @@ Page({
         app.sendTempleMsg(res.data.data.id, -1,
           '30cmPGAhDF20aotWRT9O5j8or-1NHmxIK0eXMfOT8B8', e.detail.formId,
           'pages/index/index', JSON.stringify(postJsonString));
+        /*
         postJsonString = {};
         postJsonString.keyword1 = { value: '您的订单已发货，请注意查收', color: '#173177' }
         postJsonString.keyword2 = { value: res.data.data.orderNumber, color: '#173177' }
@@ -169,6 +169,7 @@ Page({
         app.sendTempleMsg(res.data.data.id, 2,
           'Arm2aS1rsklRuJSrfz-QVoyUzLVmU2vEMn_HgMxuegw', e.detail.formId,
           'pages/order-details/index?id=' + res.data.data.id, JSON.stringify(postJsonString));
+          */
         // 下单成功，跳转到订单管理界面
         wx.redirectTo({
           url: "/pages/order-list/index"
@@ -206,7 +207,7 @@ Page({
 
     for (let i = 0; i < goodsList.length; i++) {
       let carShopBean = goodsList[i];
-      console.log(goodsList);
+//      console.log(goodsList);
       if (carShopBean.logistics) {
         isNeedLogistics = 1;
       }

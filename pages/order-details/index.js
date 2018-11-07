@@ -76,9 +76,9 @@ Page({
                     postJsonString.keyword1 = { value: that.data.orderDetail.orderInfo.orderNumber, color: '#173177' };
                     postJsonString.keyword2 = { value: that.data.orderDetail.orderInfo.dateAdd, color: '#173177' };
 
-                    let keywords3 = '您已确认收货，期待您的再次光临！您的反馈，将帮助我们更好提升服务';
+                    let keywords3 = '亲！我们期待您的再次光临哦！';
                     if (app.globalData.order_reputation_score) {
-                      keywords3 += '立即好评，系统赠送您' + app.globalData.order_reputation_score +'积分奖励。';
+                      keywords3 += '立即好评，系统将赠送您' + app.globalData.order_reputation_score +'积分奖励。您的反馈，将帮助我们更好提升服务。';
                     }
                     postJsonString.keyword3 = { value: keywords3, color: '#173177' }
                     app.sendTempleMsgImmediately('1GTO3cL6YZ62jM7ZboR0XU6x0tbH32DqRMcvovCx6Sw', formId,
@@ -130,7 +130,7 @@ Page({
               keywords2 += app.globalData.order_reputation_score + '积分奖励已发放至您的账户。';
             }
             postJsonString.keyword2 = { value: keywords2, color: '#173177' }
-            app.sendTempleMsgImmediately('uJL7D8ZWZfO29Blfq34YbuKitusY6QXxJHMuhQm_lco', formId,
+            app.sendTempleMsgImmediately('UC5orkJSj0yeZNs_0GgRQnHjgwyyr7Tz9T-BSP3IK-A', formId,
               '/pages/order-details/index?id=' + that.data.orderId, JSON.stringify(postJsonString));
           }
         }

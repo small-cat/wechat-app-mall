@@ -68,6 +68,7 @@ Page({
     if (!e.detail.userInfo){
       return;
     }
+    console.log(e.detail.userInfo);
     wx.setStorageSync('userInfo', e.detail.userInfo)
     this.login();
   },
