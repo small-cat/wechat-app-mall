@@ -5,10 +5,25 @@ Page({
     balance:0,
     freeze:0,
     score:0,
+    userLevel:[],
     score_sign_continuous:0
   },
 	onLoad() {
-    
+    let that = this;
+    let token = wx.getStorageSync('token');
+    wx.request({
+      url: 'https://api.it120.cc/' + app.globalData.subDomain + '/user/detail',
+      data: {
+        token: token
+      },
+      success: function (res) {
+        if (res.data.code == 0) {
+          that.setData({
+            userLevel: res.data.data.userLevel
+          })
+        }
+      }
+    });
 	},	
   onShow() {
     let that = this;

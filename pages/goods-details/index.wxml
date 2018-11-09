@@ -33,6 +33,7 @@
    </view>
    <view wx:if="{{curGoodsKanjia}}" class="row-arrow" bindtap="goKanjia">
       邀请好友帮忙砍价 ( <text style='color:red'>底价 {{curGoodsKanjia.minPrice}} 元</text> )
+      <text style="color:grey" wx:if="{{isKanjiaEnd==0}}">砍价兑换名额已满</text>
    </view>
    <view class="goods-des-info" style="margin-top:35rpx;" wx:if="{{pingtuanList}}">
       <view class="label-title" style="border-bottom:1px solid #eee;">{{pingtuanList.length}}人在拼单，可直接参与</view>

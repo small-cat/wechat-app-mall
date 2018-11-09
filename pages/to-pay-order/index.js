@@ -120,14 +120,46 @@ Page({
       },
       data: postData, // 设置请求的 参数
       success: (res) =>{
-        //console.log(res.data);
+        console.log(res.data);
         wx.hideLoading();
         if (res.data.code != 0) {
-          wx.showModal({
-            title: '错误',
-            content: res.data.msg,
-            showCancel: false
-          })
+          if (res.data.code == 70002) {
+            wx.showModal({
+              title: '砍价名额已售罄',
+              content: res.data.msg + '。敬请期待下次活动',
+            })
+          }else {
+            wx.showModal({
+              title: '错误',
+              content: res.data.msg,
+              showCancel: false
+            });
+          }
+
+
+          // clear kanjiaInfo
+          // 打开砍价删除设置，才能删除砍价，注意open这个值是大小写敏感的
+          // 这个地方是因为程序中没有进行删除，所有生成订单的时候报错，删除
+          // 70000 - 砍价已消费
+          // 70002 - 表示砍价份额已经兑换完成
+          if (postData.kjid) {
+            console.log(postData);
+            wx.request({
+              url: 'https://api.it120.cc/' + app.globalData.subDomain + '/shop/goods/kanjia/clear',
+              data: {
+                token: loginToken,
+                kjid: postData.kjid
+              },
+              success: function (res) {
+                console.log("success to clear kanjia info");
+                console.log(res.data);
+              },
+              fail: function (res) {
+                console.log("failed to clear kanjia info");
+                console.log(res.errMsg);
+              }
+            })
+          }
           return;
         }
 
@@ -170,6 +202,23 @@ Page({
           'Arm2aS1rsklRuJSrfz-QVoyUzLVmU2vEMn_HgMxuegw', e.detail.formId,
           'pages/order-details/index?id=' + res.data.data.id, JSON.stringify(postJsonString));
           */
+
+        /**
+         * 下单成功，如果是砍价订单，创建订单之后，应该删除砍价信息
+         */
+        if (that.data.kjId) {
+          wx.request({
+            url: 'https://api.it120.cc/' + app.globalData.subDomain + '/shop/goods/kanjia/clear',
+            data: {
+              token: loginToken,
+              kjid: postData.kjid
+            },
+            success: function (res) {
+              console.log("砍价成功，已完成消费，删除砍价信息");
+            }
+          });
+        }
+        
         // 下单成功，跳转到订单管理界面
         wx.redirectTo({
           url: "/pages/order-list/index"

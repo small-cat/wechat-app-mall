@@ -25,6 +25,7 @@ Page({
     canSubmit:false, //  选中规格尺寸时候是否允许加入购物车
     shopCarInfo:{},
     shopType: "addShopCar",//购物类型，加入购物车或立即购买，默认为加入购物车
+    isKanjiaEnd:0   // 砍价兑换名额是否已满
   },
 
   //事件处理函数
@@ -268,7 +269,6 @@ Page({
   buyNow: function (e){
     let that = this
     let shoptype = e.currentTarget.dataset.shoptype
-    console.log(shoptype)
     if (this.data.goodsDetail.properties && !this.data.canSubmit) {
       if (!this.data.canSubmit) {
         wx.showModal({
@@ -503,6 +503,11 @@ Page({
       that.setData({
         curGoodsKanjia: curGoodsKanjia
       });
+
+      let isKanjiaEnd = curGoodsKanjia.number - curGoodsKanjia.numberBuy;
+      that.setData({
+        isKanjiaEnd: isKanjiaEnd
+      });
     } else {
       that.setData({
         curGoodsKanjia: null
@@ -511,6 +516,11 @@ Page({
   },
   goKanjia: function () {
     var that = this;
+
+    // 砍价名额已满
+    if (that.data.isKanjiaEnd == 0) {
+      return;
+    }
     if (!that.data.curGoodsKanjia) {
       return;
     }

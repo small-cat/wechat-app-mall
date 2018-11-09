@@ -22,8 +22,13 @@
 .userinfo-nickname {
   margin-top: 20rpx;
   color: #FFF;
+  font-size: 30rpx;
 }
 
+.user-discount {
+  margin-top: 5rpx;
+  color: rgba(184, 231, 12, 0.918);
+}
 
 .version {
   width:100%;
