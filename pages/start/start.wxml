@@ -8,7 +8,6 @@
     <view class="content">
       <view class="hd" style="transform:rotateZ({{angle}}deg);">
         <image class="logo" src="{{userInfo.avatarUrl}}"></image>
-        <view class="nickname">{{userInfo.nickName}}</view>
         <image class="wave" src="/images/more/wave.png" mode="aspectFill"></image>
         <image class="wave wave-bg" src="/images/more/wave.png" mode="aspectFill"></image>
       </view>
